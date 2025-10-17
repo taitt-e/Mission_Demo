@@ -301,23 +301,6 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!1 &1156155250 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 1061358467538816134, guid: 20621c3bcb0272e4b89ce0c00a1075ea, type: 3}
-  m_PrefabInstance: {fileID: 1061358468560620532}
-  m_PrefabAsset: {fileID: 0}
---- !u!122 &1156155252
-Halo:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1156155250}
-  m_Enabled: 1
-  m_Color:
-    serializedVersion: 2
-    rgba: 4294950847
-  m_Size: 1
 --- !u!1001 &1061358468560620532
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -375,29 +358,6 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 20621c3bcb0272e4b89ce0c00a1075ea, type: 3}
---- !u!1 &1061358468560620533 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 1061358467846712635, guid: 20621c3bcb0272e4b89ce0c00a1075ea, type: 3}
-  m_PrefabInstance: {fileID: 1061358468560620532}
-  m_PrefabAsset: {fileID: 0}
---- !u!114 &1061358468560620534
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1061358468560620533}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 4c45a47c1356ca74ab80c63303042bf1, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  projectilePrefab: {fileID: 484811986242373841, guid: 99933ce70c640f741a64a1849e6fbe11, type: 3}
-  velocityMult: 10
-  launchPoint: {fileID: 1156155250}
-  launchPos: {x: -10, y: -6, z: 0}
-  projectile: {fileID: 1061358468560620533}
-  aimingMode: 0
 --- !u!1001 &6862633501211143490
 PrefabInstance:
   m_ObjectHideFlags: 0
