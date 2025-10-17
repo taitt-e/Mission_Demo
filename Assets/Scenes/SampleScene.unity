@@ -301,6 +301,23 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &1156155250 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 1061358467538816134, guid: 20621c3bcb0272e4b89ce0c00a1075ea, type: 3}
+  m_PrefabInstance: {fileID: 1061358468560620532}
+  m_PrefabAsset: {fileID: 0}
+--- !u!122 &1156155252
+Halo:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1156155250}
+  m_Enabled: 1
+  m_Color:
+    serializedVersion: 2
+    rgba: 4294950847
+  m_Size: 1
 --- !u!1001 &1061358468560620532
 PrefabInstance:
   m_ObjectHideFlags: 0
