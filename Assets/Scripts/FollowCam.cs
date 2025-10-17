@@ -7,6 +7,7 @@ public class FollowCam : MonoBehaviour
     static public GameObject POI; // The Static point of interest
     [Header("Inscribed")]
     public float easing = 0.05f;
+    public Vector2 minXY = Vector2.zero; // Vector2.zero is [0,0]
 
     [Header("Dynamic")]
     public float camZ; // The desired Z pos of the camera
