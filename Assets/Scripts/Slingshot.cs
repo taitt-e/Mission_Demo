@@ -17,8 +17,8 @@ public class Slingshot : MonoBehaviour
     void Awake()
     {
         Transform launchPointTrans = transform.Find("LaunchPoint");
-        launchPointTrans = launchPointTrans.gameObject;
-        launchPointTrans.SetActive(false);
+        launchPoint = launchPointTrans.gameObject;
+        launchPoint.SetActive(false);
     } 
     void OnMouseEnter()
     {
@@ -50,6 +50,9 @@ public class Slingshot : MonoBehaviour
         Vector3 mousePos2D = Input.mousePosition;
         mousePos2D.z = -Camera.main.transform.position.z;
         Vector3 mousePos3D = Camera.main.ScreenToWorldPoint(mousePos2D);
+
+        //Find the delta from the launchPos to the mousePos3D
+        Vector3 mouseDelta = mousePos3D - launchPos;
         // Limit mouseDelta to the radius of the Slingshot SphereCollider
         float maxMagnitude = this.GetComponent<SphereCollider>().radius;
         if (mouseDelta.magnitude > maxMagnitude)
@@ -58,7 +61,7 @@ public class Slingshot : MonoBehaviour
             mouseDelta *= maxMagnitude;
         }
         // Move the projectile to this new position
-        Vector3 projPos = launchPos + mouseDelta = mousePos3D - launchPos;
+        Vector3 projPos = launchPos + mouseDelta;
         projectile.transform.position = projPos;
 
         if (Input.GetMouseButtonUp(0))
