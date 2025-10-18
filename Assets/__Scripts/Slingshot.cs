@@ -74,6 +74,7 @@ public class Slingshot : MonoBehaviour
             projRB.collisionDetectionMode = CollisionDetectionMode.Continuous;
             projRB.velocity = -mouseDelta * velocityMult;
             FollowCam.POI = projectile; // Set the _MainCamera POI
+            Instantiate<GameObject>(projLinePrefab, projectile.transform);
             projectile = null;
         }
     }
