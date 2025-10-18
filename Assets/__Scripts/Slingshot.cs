@@ -75,8 +75,8 @@ public class Slingshot : MonoBehaviour
             projRB.velocity = -mouseDelta * velocityMult;
 
             //  Switch to slingshow view immediately before setting POI
-            FollowCam.SWITCH_VIEW(FollowCame.eView.slingshot);
-            
+            FollowCam.SWITCH_VIEW(FollowCam.eView.slingshot);
+
             FollowCam.POI = projectile; // Set the _MainCamera POI
             Instantiate<GameObject>(projLinePrefab, projectile.transform);
             projectile = null;
