@@ -398,10 +398,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 96e625484bca35d4f94112cd69d0b467, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  uitLevel: {fileID: 0}
-  uitShots: {fileID: 0}
-  castlePos: {x: 0, y: 0, z: 0}
-  castles: []
+  uitLevel: {fileID: 1361431647}
+  uitShots: {fileID: 1433971650}
+  castlePos: {x: 50, y: -9.5, z: 0}
+  castles:
+  - {fileID: 7310652151566901097, guid: e047e44795627174599bde91d28d963d, type: 3}
+  - {fileID: 7310652151566901097, guid: 88c83c5cec712d048a0565e69ba0d84d, type: 3}
+  - {fileID: 7310652151566901097, guid: 210243272387581438e20adb37cb8baf, type: 3}
+  - {fileID: 7310652151566901097, guid: a77ad102fd3c6cb4297176a05419422b, type: 3}
   level: 0
   levelMax: 0
   shotsTaken: 0
