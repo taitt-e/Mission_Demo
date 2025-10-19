@@ -24,7 +24,8 @@ public class MissionDemolition : MonoBehaviour
     public int level; // The current level
     public int levelMax; // The number of levels
     public int shotsTaken;
-    // public int lives;    // The Total amount of shots the player can shoot
+    static public int TOTAL_LIVES = 6; // The max amount of shots the player can shoot
+    public int lives;    // The Total amount of shots the player can shoot
     public GameObject castle; // The current castle
     public GameMode mode = GameMode.idle;
     public string showing = "Show Slingshot"; //FollowCam mode
@@ -33,14 +34,14 @@ public class MissionDemolition : MonoBehaviour
     void Start()
     {
         S = this; // Define the Singleton
-
+        lives = TOTAL_LIVES;
         level = 0;
-        shotsTaken = 0;
+        //shotsTaken = 0;
         levelMax = castles.Length;
         StartLevel();
     }
 
-    void StartLevel()
+    public void StartLevel()
     {
         // Get rid of the old castle if one exists
         if (castle != null)
@@ -58,6 +59,9 @@ public class MissionDemolition : MonoBehaviour
         //Reset the goal
         Goal.goalMet = false;
 
+        //Reset lives
+        lives = TOTAL_LIVES;
+
         UpdateGUI();
 
         mode = GameMode.playing;
@@ -70,7 +74,7 @@ public class MissionDemolition : MonoBehaviour
     {
         //  Show the data in the GUITexts
         uitLevel.text = "Level: " + (level + 1) + " of " + levelMax;
-        uitShots.text = "Shots Taken: " + shotsTaken;
+        uitShots.text = lives + " out of " + TOTAL_LIVES + " shots left.";
     }
 
     // Update is called once per frame
@@ -90,6 +94,12 @@ public class MissionDemolition : MonoBehaviour
             // Start the next level in 2 seconds
             Invoke("NextLevel", 2f);
         }
+        //Check if lives is zero.
+        if(lives == 0)
+        {
+            // Send to GameoverScene
+            SceneManager.LoadScene("GameoverScene");
+        }
     }
 
     void NextLevel()
@@ -105,15 +115,38 @@ public class MissionDemolition : MonoBehaviour
         StartLevel();
     }
 
-    //  Static method that allows code anywhere to increment shotsTaken
+    //  Static method that allows code anywhere to reduce life
     static public void SHOT_FIRED()
     {
-        S.shotsTaken++;
+        S.lives--;
+        //S.shotsTaken++;
     }
-    
+
     //  Static method that allows code anywhere to get a reference to S.castle
     static public GameObject GET_CASTLE()
     {
         return S.castle;
+    }
+    
+    static public void RESET_LEVEL()
+    {
+        // Get rid of the old castle if one exists
+        if (S.castle != null)
+        {
+            Destroy(S.castle);
+        }
+
+        //  Destroy old projectiles if the exist
+        Projectile.DESTROY_PROJECTILES();
+
+        //Instantiate the new castle
+        S.castle = Instantiate<GameObject>(S.castles[S.level]);
+        S.castle.transform.position = S.castlePos;
+
+        //Reset the goal
+        Goal.goalMet = false;
+
+        //Reset lives
+        S.lives = TOTAL_LIVES;
     }
 }
