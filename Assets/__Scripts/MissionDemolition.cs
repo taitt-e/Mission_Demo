@@ -24,6 +24,7 @@ public class MissionDemolition : MonoBehaviour
     public int level; // The current level
     public int levelMax; // The number of levels
     public int shotsTaken;
+    // public int lives;    // The Total amount of shots the player can shoot
     public GameObject castle; // The current castle
     public GameMode mode = GameMode.idle;
     public string showing = "Show Slingshot"; //FollowCam mode

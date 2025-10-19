@@ -4,10 +4,12 @@ using UnityEngine;
 
 public class Slingshot : MonoBehaviour
 {
+    private AudioSource audioSource;
     [Header("Inscribed")]
     public GameObject projectilePrefab;
     public float velocityMult = 10f;
     public GameObject projLinePrefab;
+    public AudioClip snapSound;
     
     [Header("Dynamic")]
     public GameObject launchPoint;
@@ -40,6 +42,7 @@ public class Slingshot : MonoBehaviour
         projectile.transform.position = launchPos;
         //Set it to isKinematic for now
         projectile.GetComponent<Rigidbody>().isKinematic = true;
+        audioSource = GetComponent<AudioSource>();
     }
     
     void Update()
@@ -73,6 +76,9 @@ public class Slingshot : MonoBehaviour
             projRB.isKinematic = false;
             projRB.collisionDetectionMode = CollisionDetectionMode.Continuous;
             projRB.velocity = -mouseDelta * velocityMult;
+            // Play a snap noise
+            audioSource.clip = snapSound;
+            audioSource.Play();
 
             //  Switch to slingshow view immediately before setting POI
             FollowCam.SWITCH_VIEW(FollowCam.eView.slingshot);
