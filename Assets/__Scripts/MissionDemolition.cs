@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
-
+using UnityEngine.SceneManagement;
 public enum GameMode
 {
     idle,
@@ -98,6 +98,8 @@ public class MissionDemolition : MonoBehaviour
         {
             level = 0;
             shotsTaken = 0;
+            // Send to GameoverScene
+            SceneManager.LoadScene("GameoverScene");
         }
         StartLevel();
     }
