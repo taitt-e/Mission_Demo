@@ -6,6 +6,9 @@ public class Slingshot : MonoBehaviour
 {
     private AudioSource audioSource;
     [Header("Inscribed")]
+    public LineRenderer rubber;
+    public Transform firstPoint;
+    public Transform secondPoint;
     public GameObject projectilePrefab;
     public float velocityMult = 10f;
     public GameObject projLinePrefab;
@@ -16,6 +19,13 @@ public class Slingshot : MonoBehaviour
     public Vector3 launchPos;
     public GameObject projectile;
     public bool aimingMode;
+
+    void Start()
+    {
+        rubber.positionCount = 3;
+        rubber.SetPosition(0, firstPoint.position);
+        rubber.SetPosition(2, secondPoint.position);
+    }
 
     void Awake()
     {
@@ -43,6 +53,7 @@ public class Slingshot : MonoBehaviour
         //Set it to isKinematic for now
         projectile.GetComponent<Rigidbody>().isKinematic = true;
         audioSource = GetComponent<AudioSource>();
+        
     }
     
     void Update()
@@ -54,6 +65,9 @@ public class Slingshot : MonoBehaviour
         Vector3 mousePos2D = Input.mousePosition;
         mousePos2D.z = -Camera.main.transform.position.z;
         Vector3 mousePos3D = Camera.main.ScreenToWorldPoint(mousePos2D);
+        
+        //Set Rubber position
+        rubber.SetPosition(1, mousePos3D);
 
         //Find the delta from the launchPos to the mousePos3D
         Vector3 mouseDelta = mousePos3D - launchPos;
